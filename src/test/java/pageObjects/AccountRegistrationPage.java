@@ -23,6 +23,8 @@ public class AccountRegistrationPage extends BasePage{
     WebElement chkPolicy;
 @FindBy(xpath="//button[@type='submit']")
     WebElement continueButton;
+@FindBy(xpath = "//h1[normalise-space()='Your Account Has Been Created!']")
+    WebElement msgConfirmation;
 
 public void setFirstname(String fname)
     {
@@ -47,6 +49,15 @@ public void setFirstname(String fname)
     public void clickContinue()
     {
         continueButton.click();
+    }
+
+    public String getConfirmationMsg(){
+    try{
+    return (msgConfirmation.getText());
+    }catch (Exception e){
+    return (e.getMessage());
+    }
+
     }
 
 
